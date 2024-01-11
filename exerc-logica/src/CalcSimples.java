@@ -1,5 +1,5 @@
 /* CALCULADORA SIMPLES, exercício básico que calcula as operações matemáticas
- * básicas entre dois numeros inteiros
+ * básicas entre dois numeros inteiros usando apenas if else
  */
 import java.util.Scanner;
 
