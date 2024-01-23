@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class celciusParaFahrenheit {
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
-        
+//        testando primeiro uso do git no terminal
 
 
 
