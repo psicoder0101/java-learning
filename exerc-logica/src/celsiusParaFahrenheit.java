@@ -3,14 +3,14 @@ import java.util.Scanner;
 * GRAUS ºC E RETORNE O VALOR EQUIVALENTE EM ºF
 * usando a formula F = C x 1,8 + 32 */
 
-public class celciusParaFahrenheit {
+public class celsiusParaFahrenheit {
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
 //        testando primeiro uso do git no terminal
 
         System.out.println("CONVERSAO DE TEMPERATURA");
         System.out.print("DIGITE UMA TEMPERATURA EM *C: ");
-        double tempC = read.nextInt();
+        double tempC = read.nextDouble();
 
         double tempF = tempC * 1.8 + 32;
 
