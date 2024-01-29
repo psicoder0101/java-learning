@@ -1,5 +1,5 @@
 import java.util.Scanner;
-/* Creie um programa que receba do usuario um nome de usuario e uma senha
+/* Crie um programa que receba do usuario um nome de usuario e uma senha
 * testanto a validade dessas insercoes: garantir que o usuario digite uma string no campo username
 * e uma sequencia de 6 numeros no campo senha.
 * */
