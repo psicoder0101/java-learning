@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/exerc-logica/exerc-logica.iml" filepath="$PROJECT_DIR$/exerc-logica/exerc-logica.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exerc-string-scanner/exerc-string-scanner.iml" filepath="$PROJECT_DIR$/exerc-string-scanner/exerc-string-scanner.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-learning.iml" filepath="$PROJECT_DIR$/.idea/java-learning.iml" />
     </modules>
   </component>
