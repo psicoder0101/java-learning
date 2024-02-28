@@ -5,41 +5,31 @@ import java.util.Scanner;
 public class numPos {
     static Scanner read = new Scanner(System.in);
     public static void main(String[] args) {
-
         System.out.println("=== CHEGCAGEM DE NUMEROS POSITIVOS ===");
-        int num = validaPositivo();
-
+        int num = inputcheck();
     }
 
+    //impede que o usuario insira outros tipos na entrada
     public static int inputcheck() {
         int input = 0;
         boolean check = false;
         while (!check) {
-            if (read.hasNextInt()) {
-                input = read.nextInt();
-                check = true;
+            System.out.print("DIGITE UM NÚMERO POSITIVO MAIOR QUE ZERO: ");
+            String inputStr = read.nextLine();
+            if (inputStr.matches("[0-9]+")) {     //usar validacao com regex e converter para numero
+                input = Integer.parseInt(inputStr);     //evita buffer overflow e injecao de codigo
+                check = validaPositivo(input);
             } else {
-                read.next();
-                System.out.println("Formato inválido");
-                System.out.println("Digite um umero: ");
+                System.out.print("FORMATO INVÁLIDO! ");
             }
         }
+        System.out.println("Positivo detectado!");
         return input;
     }
 
-    public static int validaPositivo () {
-        int num = 0;
-        while (num <= 0) {
-            System.out.println("Digite um numero positivo diferente de zero: ");
-            num = inputcheck();
-            if (num > 0) {
-                System.out.println("NUMERO DETECTADO!");
-            }
-        }
-        return num;
+//    valida se o numero eh positivo
+    public static boolean validaPositivo (int num) {
+        return num > 0;
     }
 }
 
-/*codigo funcionando, mas falta melhorar a logica: a funcao valida positivo deve apenas validar
-* nao solicitar a entrada, preciso retirar a chamada do inputcheck() de dentro da funcao
-* validaPositvo e fazer com que ela apenas cheque a validade da variavel ja armazenada */
