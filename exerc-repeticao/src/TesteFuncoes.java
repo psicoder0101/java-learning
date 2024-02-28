@@ -43,7 +43,8 @@ public class TesteFuncoes {
             /*implementa a leitura a partir de uma string qualquer*/
             if (input.matches("[0-9]+")) {
                 /*usa regex para buscar padroes numericos e garante que apenas
-                * numeros serao aceitos na entrada*/
+                * numeros inteiros serao aceitos na entrada, para acrescentar suporte
+                * a numeros decimais, basta substituir o "[0-9]+" por "[0-9]+([\\.][0-9]+)?" */
                 num = Integer.parseInt(input);
                 /*caso seja digitado um numero na string, converte para int*/
                 check = true;
@@ -56,7 +57,5 @@ public class TesteFuncoes {
 
 
 /* ok ate aqui, falta reescrever a funcao com correcao para erro DoS, tambem tentar escrever
-* funcoes para outros tipos de variaveis na entrada, tentar fazer com Double, por exemplo
-* que nao eh aceito na funcao acima porque, apesar de ser numero, tem virgula no meio, verificar
-* se é por isso mesmo ou se nao passa porque o ParseInt so converte inteiros mesmo*/
+* funcoes para outros tipos de variaveis na entrada, tentar fazer com Double */
 }
