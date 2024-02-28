@@ -32,4 +32,5 @@ public class numPos {
         return num > 0;
     }
 }
+// codigo funcionando em 27 fev 2024
 
