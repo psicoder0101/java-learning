@@ -47,6 +47,8 @@ public class TesteFuncoes {
                 * a numeros decimais, basta substituir o "[0-9]+" por "[0-9]+([\\.][0-9]+)?" */
                 num = Integer.parseInt(input);
                 /*caso seja digitado um numero na string, converte para int*/
+                /*o mesmo pode ser feito com outros tipos como Double, float, etc,
+                * Aprofundar futuramente em conceitos basicos de POO*/
                 check = true;
             } else {
                 System.out.println("FORMATO INVALIDO! DIGITE NOVAMENTE: ");
