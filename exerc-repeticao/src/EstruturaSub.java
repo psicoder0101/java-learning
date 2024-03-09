@@ -1,27 +1,16 @@
 import java.util.Scanner;
-/*desenvolver uma estrutura de um pequeno menu com algumas opcoes de escolha, a selecao
-* acontece com base na entrada do teclado do usuario, mas se este digitar uma opcao
-* invalida, o programa inteiro repete até que seja digitada uma opcao valida*/
+/* Repetindo o exercicio do estrutura de menu, mas criando opcoes de submenus com telas
+* navegaveis */
 
 public class EstruturaSub {
     static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        int opt = menuPrincipal();
-//        switch (opt) {
-//            case 1 -> opcaoA();
-//            case 2 -> System.out.println("falta implementar");
-//            case 3 -> System.out.println("tb falta implementar");
-//            case 4 -> System.out.println("saindo...");
-//            default -> System.exit(1);
-//        }
-
+        menuPrincipal();
     }
-
-    public static int menuPrincipal (){
-        int count = 0;
-        while (count == 0) {
+    public static void menuPrincipal (){ /*menu principal para escolha da opcao desejada*/
+        int opcaoDesejada = 0;
+        while (opcaoDesejada == 0) { /*repete as opcoes ate que um numero valido seja digitado*/
             System.out.println("=== MENU ===");
             System.out.println("""
                         1. Opcao A
@@ -33,23 +22,29 @@ public class EstruturaSub {
             if (teste < 1 || teste > 4) {
                 System.out.println("Opcao invalida!");
             } else {
-                count = teste;
+                opcaoDesejada = teste;
             }
         }
-        switch (count) {
-            case 1 -> opcaoA();
-            case 2 -> System.out.println("falta implementar");
-            case 3 -> System.out.println("tb falta implementar");
-            case 4 -> System.out.println("saindo...");
-            default -> System.exit(1);
+        if (opcaoDesejada == 4) {
+            System.out.println("Saindo...");
+        } else {
+            opcoes(opcaoDesejada);
         }
-        return count;
     }
 
-    public static void opcaoA (){
-        int count = 0;
-        while (count == 0) {
-            System.out.println("Dentro da opcao A!");
+    public static void opcoes (int numeroDaOpcao){
+        /*seletor de opcoes, ele recebe como parametro o numero que foi armazenado na
+         * variavel opcaoDesejada no menu principal. Se parece com o seletor da classe
+         * EstruturaMenuEditavel, mas esse seletor eh unificado e retorna o mesmo metodo
+         * mudando apenas a letra do da tela, ou seja, nao sao telas diferentes, é apenas
+         * a mesma tela com letras diferentes a depender do parametro recebido*/
+            switch (numeroDaOpcao) {
+                case 1 -> System.out.println("Dentro da opcao A!");
+                case 2 -> System.out.println("Dentro da opcao B!");
+                case 3 -> System.out.println("Dentro da opcao C!");
+            }
+        int opcaoDesejadaSubmenu = 0;
+        while (opcaoDesejadaSubmenu == 0) {
             System.out.println("""
                     1. Voltar
                     2. Sair""");
@@ -58,22 +53,16 @@ public class EstruturaSub {
             if (teste < 1 || teste > 2) {
                 System.out.println("Opcao invalida!");
             } else {
-                count = teste;
+                opcaoDesejadaSubmenu = teste;
             }
         }
-        switch (count) {
+        switch (opcaoDesejadaSubmenu) {
             case 1 -> menuPrincipal();
             case 2 -> {break;}
             default -> System.exit(1);
         }
     }
 
-    /* codigo funcionando ate aqui 07-03-24. implementei uma das telas, ainda falta implementar o resto
-    * corrigi a chamada do menu principal dentro do metodo submenu (opcaoA), retirei o processo de selecao
-    * de dentro da classe main e inseri dentro do metodo menuPrincipal() preciso estudar a possibilidade
-    * de transformar esse metodo pra tipo void, porque ja que a selecao acontece dentro dele mesmo, entao
-    * ele eh um procedimento.
-    * depois disso so falta implementar o restante das opcoes*/
-
+// codigo funcionando em 08/03/24
 }
 
