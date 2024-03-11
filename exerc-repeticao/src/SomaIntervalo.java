@@ -28,6 +28,9 @@ public class SomaIntervalo {
         int intervaloIncial = numerosOrdenados[0];
         int intervaloFinal = numerosOrdenados[1];
         exibirIntervalo(intervaloIncial, intervaloFinal);
+        mostraPares(intervaloIncial, intervaloFinal);
+        mostraImpares(intervaloIncial, intervaloFinal);
+        somaIntervalo(intervaloIncial, intervaloFinal);
 
     }
 
@@ -65,22 +68,55 @@ public class SomaIntervalo {
         System.out.println("---------------------------------------");
         System.out.printf("Intervalo Selecionado: \n> Inicio: %d \n> Fim: %d\n", inicio, fim);
         System.out.println("Numeros dentro deste intervalo: ");
+        int cont = 0;
         for (int i = inicio; i <= fim ; i++) {
-            if (!(i == fim)) {
-                System.out.print(i + ", ");
-                if (i % 10 == 0) {
-                    System.out.println("\n");
-                }
-            } else {
-                System.out.println(i);
+            System.out.print(i + "  ");
+            cont++;
+            if (cont % 10 == 0) {
+                System.out.println("\n");
             }
-
         }
-        System.out.println("---------------------------------------");
     }
 
-    /* ja implementei o metodo de ordenar os valores e implementei o metodo que exibe
-    * o intervalo entre os numeros. agora falta os metodos de par e impar e o metodo
-    * da soma*/
+    public static void mostraPares (int inicio, int fim){
+        System.out.println("\n---------------------------------------");
+        System.out.println("LISTA DE NUMEROS PARES:");
+        int cont = 0;
+        for (int i = inicio; i <= fim ; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + "  ");
+                cont++;
+                if (cont % 10 == 0) {
+                    System.out.println("\n");
+                }
+            }
+        }
+    }
+
+    public static void mostraImpares (int inicio, int fim){
+        System.out.println("\n---------------------------------------");
+        System.out.println("LISTA DE NUMEROS IMPARES:");
+        int cont = 0;
+        for (int i = inicio; i <= fim ; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + "  ");
+                cont++;
+                if (cont % 10 == 0) {
+                    System.out.println("\n");
+                }
+            }
+        }
+    }
+
+    public static void somaIntervalo (int a, int b) {
+        int soma = 0;
+        for (int i = a; i <= b; i++) {
+            soma += i;
+        }
+        System.out.println("\n---------------------------------------");
+        System.out.print("SOMA DO INTERVALO TOTAL = " + soma);
+    }
+
+   /* ja implementei todos os metodos, agora so falta revisar o cod */
 
 }
