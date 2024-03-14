@@ -23,6 +23,7 @@ public class SomaIntervalo {
         int numA = validarInput();
         System.out.print("Digite o segundo numero: ");
         int numB = validarInput();
+        cls();
 
         int[] numerosOrdenados = ordenarNumeros(numA, numB);
         int intervaloIncial = numerosOrdenados[0];
@@ -31,7 +32,6 @@ public class SomaIntervalo {
         mostraPares(intervaloIncial, intervaloFinal);
         mostraImpares(intervaloIncial, intervaloFinal);
         somaIntervalo(intervaloIncial, intervaloFinal);
-
     }
 
     public static int validarInput () { /*garante a insercao de numeros inteiros*/
@@ -117,6 +117,15 @@ public class SomaIntervalo {
         System.out.print("SOMA DO INTERVALO TOTAL = " + soma);
     }
 
-   /* ja implementei todos os metodos, agora so falta revisar o cod */
-
+    public static void cls()
+    {
+        try
+        {
+            new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+        }catch(Exception E)
+        {
+            System.out.println(E);
+        }
+    }
+//   cod funcionando 14/03/24
 }
