@@ -17,7 +17,6 @@ public class ContagemLetras {
         }
         System.out.println("FRASE DIGITADA: \n > " + frase);
 
-
         char[] letras = new char[frase.length()];
 
         for (int i = 0; i < frase.length(); i++) {
@@ -56,7 +55,7 @@ public class ContagemLetras {
     }
 
 
-    //funcao que apaga todos os espacos em branco de uma string
+
 
     //funcao que mapeia a quantidade de ocorrencias de um char na frase
 
