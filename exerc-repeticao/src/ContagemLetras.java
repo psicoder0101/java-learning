@@ -1,69 +1,96 @@
+import java.util.Arrays;
 import java.util.Scanner;
-/*desenvolver um programa que recebe uma frase (no maximo 30 caracteres) do teclado
-* analisa essa frase e retorna quais letras aparecem nessa frase e quantas vezes
-* cada letra aparece */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class ContagemLetras {
 
     public static Scanner read = new Scanner(System.in);
     public static void main(String[] args) {
-
+        // input
         System.out.println("=== CONTAGEM DE LETRAS ===");
         System.out.print("Digite uma frase: ");
         String frase = read.nextLine();
-        if (frase.length() > 30) {
-            System.out.println("ERRO: Frase muito longa!");
-            System.exit(1);
-        }
         System.out.println("FRASE DIGITADA: \n > " + frase);
 
-        char[] letras = new char[frase.length()];
+        /* declara uma string e armazena processamento do input sem letras repetidas,
+        * espacos e em ordem alfabetica */
+        String textoSemRepetidos = removerRepeticoes(removerEspacos(frase));
 
-        for (int i = 0; i < frase.length(); i++) {
-            if (!buscarChar(letras,frase.charAt(i))) {
-                letras[indexVazio(letras)] = frase.charAt(i);
+
+        char[] letras = textoSemRepetidos.toCharArray(); //array que recebe as letras
+        int [] numeros = contarLetras(letras, frase); //array que recebe as ocorrencias das letras na frase
+
+        //output
+        System.out.println("_____________________________________________________");
+        System.out.println("CONTAGEM DE CARACTERES:");
+        System.out.println("letra | quant. ocorrências");
+
+        for (int i = 0; i < letras.length; i++) {
+            System.out.print(letras[i]);
+            System.out.print(" = ");
+            System.out.println(numeros[i]);
+        }
+
+    }
+
+    public static String removerRepeticoes(String texto) {
+    /* funcao que recebe uma string e retorna outra com apenas um exemplar de cada caractere
+     * que compoe a frase, em ordem alfabetica*/
+
+        Pattern pattern = Pattern.compile("(.)(?=.*\\1)");
+        Matcher matcher = pattern.matcher(texto);
+
+        texto = matcher.replaceAll("");
+        char[] textoChar = texto.toCharArray();
+        Arrays.sort(textoChar);
+        texto = String.valueOf(textoChar);
+
+        return texto;
+    }
+
+    public static String removerEspacos(String texto) {
+    //funcao que apaga todos os espacos em branco de uma string
+
+        char[] letras = new char[texto.length()];
+
+        for (int i = 0; i < letras.length; i++) {
+            letras[i] = texto.charAt(i);
+        }
+
+        for (int i = 0; i < letras.length - 1; i++) {
+            for (int j = i + 1; j < letras.length; j++) {
+                if (letras[i] == ' ') {
+                    char temp = letras[i];
+                    letras[i] = letras[j];
+                    letras[j] = temp;
+                }
             }
         }
 
-        for (int i = 0; i < indexVazio(letras); i++) {
-            System.out.println(letras[i]);
-        }
+        texto = String.valueOf(letras);
+        return texto.trim();
     }
 
+    public static int[] contarLetras (char[] arrayLetras, String frase){
+        /* funcao que mapeia a quantidade de ocorrencias de um char na frase: recebe um array
+        * com as letras a serem contadas e uma String com a frase na qual cada letra do array
+        * vai ser buscada, contabiliza as ocorrências de cada letra do array e retorna um outro
+        * array de inteiros com as ocorrências de cada letra ordenadas de acordo com as posicoes
+        * das letras em arrayLetras */
 
-    //funcao que percorre um array atras de um caractere
-    public static boolean buscarChar (char[] arrayChar, char procurado) {
-        boolean resultado = false;
-        for (int i = 0; i < arrayChar.length; i++) {
-            if (arrayChar [i] == procurado) {
-                resultado = true;
+        int[] ocorrencias = new int[arrayLetras.length];
+        for (int i = 0; i < arrayLetras.length; i++) {
+            for (int j = 0; j < frase.length(); j++) {
+                if (frase.charAt(j) == arrayLetras[i]){
+                    ocorrencias[i]++;
+                }
             }
         }
-        return resultado;
+
+        return ocorrencias;
     }
 
-    //funcao que identifica o primeiro index vazio de um array
-    public static int indexVazio (char[] arrayChar) {
-        int index = -1;
-        for (int i = 0; i < arrayChar.length; i++) {
-            if (arrayChar[i] == '\u0000') {
-                index = i;
-                break;
-            }
-        }
-        return index;
-    }
-
-
-
-
-    //funcao que mapeia a quantidade de ocorrencias de um char na frase
-
-
-    /*andamento: consegui fazer o codigo identificar as palavras que se repetem dentro da frase
-    * e consegui fazer o ele armazenar essas letras em outro array, sem contar as que se repetem
-    * criando assim um array com todas as letras que sao usadas na frase. tive um obstaculo: nao
-    * conheco nenhuma forma de fazer uma String ser reescrevida sem os espacos em branco
-    * precisarei criar uma funcao especificamente pra isso. apos, falta a criacao do procedimento
-    * de calculo da quantidade de ocorrencias de cada letra*/
+    // codigo funcionando em 03 abr 2024
 }
