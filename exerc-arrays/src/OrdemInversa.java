@@ -1,3 +1,6 @@
+/* Criar um programa que armazena determinada quantidade de numeros em um vetor
+* (a ser escolhida pelo usuario) em seguida, exibe os numeros digitados e mostra
+* estes numeros na ordem inversa */
 import java.util.Scanner;
 
 public class OrdemInversa {
