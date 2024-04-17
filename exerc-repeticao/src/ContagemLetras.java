@@ -3,6 +3,9 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/* criar um programa que recebe um determinado texto do teclado, processa o texto
+* e retorna quais letras o compoem e qual a ocorrencia especifica de cada letra
+* dentro do texto  */
 
 public class ContagemLetras {
 
