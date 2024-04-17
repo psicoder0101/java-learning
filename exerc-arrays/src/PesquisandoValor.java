@@ -6,7 +6,6 @@
 * dentro desse vetor e, caso esteja, em qual posicao se encontra.
 * Perguntar ao usuario se deseja pesquisar outro valor */
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class PesquisandoValor {
@@ -38,7 +37,7 @@ public class PesquisandoValor {
         }
         System.out.println();
 
-
+        // loop: pergunta se o usuario quer pesquisar um valor ate que ele diga nao
         boolean desejaPesquisar = true;
         while (desejaPesquisar) {
             System.out.print("\nDeseja buscar por um valor? s/n > ");
@@ -51,15 +50,35 @@ public class PesquisandoValor {
                 desejaPesquisar = false;
             }
         }
-    }//fimmain
-
-    public static String buscarValor (int valor, int[] array) {
-        /* criar mecanismo de busca */
-        // retornar String contendo a resposta se tem ou nao o valor
-        // e a posicao no array em que o valor esta
-        return "";
     }
 
+    public static String buscarValor (int valorProcurado, int[] array){
+        /*faz a busca do valor procurado dentro do array. Caso encontre, retorna
+        * a confirmacao de que foi encontrado e o indice onde o valor esta. caso
+        * seja encontrada mais de uma ocorrencia, entao informa que foi encontrado
+        * o valor em mais de um indice*/
+        int indiceEncontrado = 0;
+        boolean confirmacao = false;
+        int contagemDeResultados = 0;
+        String resultado;
 
+        for (int i = 0; i < array.length; i++){
+            if (array[i] == valorProcurado) {
+                confirmacao = true;
+                contagemDeResultados++;
+                indiceEncontrado = i;
+            }
+        }
 
-}//fimclasse
+        if (confirmacao && contagemDeResultados == 1) {
+            resultado = String.format("O valor %d foi encontrado no indice %d.", valorProcurado, indiceEncontrado);
+        } else if (confirmacao && contagemDeResultados > 1) {
+            resultado = String.format("O valor %d foi encontrado em mais de um indice", valorProcurado);
+        } else {
+            resultado = "Nenhuma ocorrencia encontrada.";
+        }
+
+        return resultado;
+    }
+    //codigo funcionando 17 abr 2024
+}
