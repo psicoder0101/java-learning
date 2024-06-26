@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/exerc-arrays/exerc-arrays.iml" filepath="$PROJECT_DIR$/exerc-arrays/exerc-arrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/exerc-logica/exerc-logica.iml" filepath="$PROJECT_DIR$/exerc-logica/exerc-logica.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exerc-matrizes/exerc-matrizes.iml" filepath="$PROJECT_DIR$/exerc-matrizes/exerc-matrizes.iml" />
       <module fileurl="file://$PROJECT_DIR$/exerc-opter-swcase/exerc-opter-swcase.iml" filepath="$PROJECT_DIR$/exerc-opter-swcase/exerc-opter-swcase.iml" />
       <module fileurl="file://$PROJECT_DIR$/exerc-repeticao/exerc-repeticao.iml" filepath="$PROJECT_DIR$/exerc-repeticao/exerc-repeticao.iml" />
       <module fileurl="file://$PROJECT_DIR$/exerc-string-scanner/exerc-string-scanner.iml" filepath="$PROJECT_DIR$/exerc-string-scanner/exerc-string-scanner.iml" />
