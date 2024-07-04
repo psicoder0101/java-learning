@@ -1,7 +1,12 @@
+
+/*Crie um programa que receba certa quantidade de itens de um mercado, solicite as informações "nome, preco de compra e
+ * preco de venda" para cada um desses itens e armazene adequadamente dentro de vetores. Em seguida, o programa deve
+ * retornar uma lista de visualização desses itens seguida pela classificação de quantos itens no total obtiveram
+ * lucros nas três seções: abaixo de 10%, entre 10 e 20% e acima de 20%. Exibir ao final a soma total dos precos
+ * de compra, venda e o lucro total (venda - compra) */
+
 import java.util.Scanner;
-
 public class ComercMatriz {
-
         public static void main(String[] args) {
             Scanner read = new Scanner(System.in);
             System.out.println("=== COMERCIANTE ===");
@@ -10,12 +15,11 @@ public class ComercMatriz {
 
             //declaracao dos vetores
             String[] nomes = new String[quantItens];
+
+            //matriz com precos compra e venda
+            float[][] precos = new float[2][quantItens];
             // indice 0 = preco de compra
             // indice 1 = preco de venda
-
-            float[][] precos = new float[2][quantItens];
-            //Float[] precoCompra = new Float[quantItens];
-            //Float[] precoVenda = new Float[quantItens];
 
             //cadastramento dos itens
             for (int i = 0; i < quantItens; i++) {
@@ -28,15 +32,6 @@ public class ComercMatriz {
                 System.out.print("Preco de venda: ");
                 precos[1][i] = read.nextFloat();
             }
-
-
-            System.out.println("TABELA: ");
-
-            for (int i = 0; i < precos.length; i++) {
-                System.out.println(nomes[i] + " " + precos[0][i] + " " + precos[1][i]);
-            }
-
-
 
             //processamento de classificacoes
             int abaixoDezPorCento = 0;
@@ -53,34 +48,16 @@ public class ComercMatriz {
                 }
             }
 
-            System.out.println("______________________________________________________");
-            System.out.println("CLASSIFICACAO DOS ITENS POR LUCRO:");
-            System.out.println("Abaixo de 10%: " + abaixoDezPorCento);
-            System.out.println("Entre 10% e 20%: " + entreDezEVintePorCento);
-            System.out.println("Acima de 20%: " + acimaVintePorCento);
-
-
-            /* PARA CONTINUAR DEPOIS:
-            * Estao funcionando o algoritmo de armazenamento dos valores e o de classificacao dos lucros
-            * imprimi separadamente as tabelas dos valores e dos lucros pra testar e tudo esta ok
-            * seguir na construcao do calculo das somas de compra e venda e do lucro total
-            * depois fazer a impressao da saida */
-
-
-
-
-
-            /*
-            //soma dos precos compra
+            //soma dos precos de compra
             float somaCompra = 0;
-            for (float preco : precoCompra) {
-                somaCompra += preco;
+            for (int j = 0; j < precos[0].length; j++) {
+                somaCompra += precos[0][j];
             }
 
-            //soma dos precos venda
+            //soma dos precos de venda
             float somaVenda = 0;
-            for (float preco : precoVenda) {
-                somaVenda += preco;
+            for (int j = 0; j < precos[0].length; j++) {
+                somaVenda += precos[1][j];
             }
 
             //calculo do lucro total
@@ -91,7 +68,7 @@ public class ComercMatriz {
             System.out.println("______________________________________________________");
             System.out.println("NOME   |   PRECO COMPRA    |   PRECO VENDA");
             for (int i = 0; i < quantItens; i++) {
-                System.out.printf("%S   |   %.2f    |   %.2f\n", nomes[i], precoCompra[i], precoVenda[i]);
+                System.out.printf("%S   |   %.2f    |   %.2f\n", nomes[i], precos[0][i], precos[1][i]);
             }
             System.out.println("______________________________________________________");
             System.out.println("CLASSIFICACAO DOS ITENS POR LUCRO:");
@@ -99,15 +76,11 @@ public class ComercMatriz {
             System.out.println("Entre 10% e 20%: " + entreDezEVintePorCento);
             System.out.println("Acima de 20%: " + acimaVintePorCento);
             System.out.println("______________________________________________________");
-            System.out.println("VALOR TOTAL COMPRA: " + somaCompra);
-            System.out.println("VALOR TOTAL VENDA: " + somaVenda);
-            System.out.println("LUCRO BRUTO: " + lucroTotal);
+            System.out.println("VALOR TOTAL COMPRA: " + String.format("%.2f", somaCompra));
+            System.out.println("VALOR TOTAL VENDA: " + String.format("%.2f", somaVenda));
+            System.out.println("LUCRO BRUTO: " + String.format("%.2f", lucroTotal));
 
             read.close();
-
-
-             */
         }
-
-
+//        codigo funcionando 03 de julho de 2024
 }
