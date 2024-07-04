@@ -1,2 +1,5 @@
 # java-learning
- Repository for my personal java projects and studying
+ Repositório para meus estudos de lógica em Java
+ Criação: Fev/2024
+ Finalização: Jul/2024
+ 
